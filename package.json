@@ -1,0 +1,43 @@
+{
+  "name": "myitineraryspring2",
+  "version": "1.0.0",
+  "description": "INET myitineraryspring2",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "server": "nodemon server.js",
+    "client": "cd client/ && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javicab/myitinerarySpring2.git"
+  },
+  "author": "Javier Caballero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javicab/myitinerarySpring2/issues"
+  },
+  "homepage": "https://github.com/javicab/myitinerarySpring2#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.0",
+    "eslint": "^6.6.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
+    "mongodb": "^3.3.3",
+    "mongoose": "^5.7.7",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.0",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

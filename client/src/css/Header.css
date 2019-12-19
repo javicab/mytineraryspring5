@@ -1,0 +1,39 @@
+
+/*
+.header{
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-top: 5px;
+  border-bottom: 5px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  }
+*/
+.header-logo {
+  width: 100%;
+  height: auto;
+  /*padding: 20px;*/
+  /*border-top: 5px;*/
+  /*border-bottom: 5px;*/
+  /*border: 1px solid black;*/
+  /*box-sizing: border-box;*/
+  /*float: left;*/
+  
+  /*text-align: left ;*/
+  /*clear: left;*/
+  }
+
+
+.izquierda{
+  text-align: left;
+  }
+/*
+.header-img{
+    background-image: url('../img/MYtineraryLogo.jpg'); 
+    background-repeat: no-repeat;
+    background-color: #ff0000;
+}
+*/
+
+

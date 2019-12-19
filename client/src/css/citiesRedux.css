@@ -1,0 +1,30 @@
+.izquierda {
+  text-align: left;
+}
+
+.cities{
+  /*width: 100%;*/
+  height: 300;
+  /*padding: 25px;*/
+  /*border: 1px solid black;*/
+  /*box-sizing: border-box;*/
+}
+
+.videos{
+  width: 100%;
+  height: 300;
+  padding: 10px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.flechas{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centrado{
+  text-align: center;
+}
