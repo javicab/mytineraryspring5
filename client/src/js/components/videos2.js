@@ -7,7 +7,7 @@ import React from 'react';
 import arrowRight from '../../img/arrow-R.svg';
 import arrowLeft from '../../img/arrow-L.svg';
 import '../../css/videos.css';
-import { urlImages } from "../constants/action-types";
+//import { urlImages } from "../constants/action-types";
 
 export default class Videos2 extends React.Component {
   constructor() {

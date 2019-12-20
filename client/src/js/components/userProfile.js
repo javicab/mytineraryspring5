@@ -68,14 +68,6 @@ class UserProfile extends Component {
         }
     
 
-/*
-const mapStateToProps = (state) => { 
-    return {
-        //token is obtained by param, user info is obtained by decoding the token
-        //favItinsInfo: state.userReducer.userFavs    
-    }
-} 
-*/
 function mapStateToProps(state){
     return {
         token: state.token,
@@ -85,26 +77,3 @@ function mapStateToProps(state){
 export default connect(mapStateToProps)(UserProfile); // 
 
 
-//clean local storage:
-//const storedToken = localStorage.getItem("token");
-// if (storedToken){
-//     let decodedData = decode(storedToken, { header: true });
-//     let expirationDate = decodedData.exp;
-//      var current_time = Date.now() / 1000;
-//      if(expirationDate < current_time)
-//      {
-//          localStorage.removeItem("token");
-//      }
-//   }
-
-
-
-/*
-//mapstateToProps
-function mapStateToProps(state){
-  return {
-      token: state.token,
-  }
-}
-
-export default connect(mapStateToProps)(loginForm);*/

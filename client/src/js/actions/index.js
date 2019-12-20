@@ -1,6 +1,6 @@
 
 import { FETCH_DATA_CITIES } from "../constants/action-types";
-import { FETCH_DATA_ITINERARIES } from "../constants/action-types";
+//import { FETCH_DATA_ITINERARIES } from "../constants/action-types";
 import { FETCH_DATA_ITINERARIES_BY_ID_CITY } from "../constants/action-types";
 import { FETCH_DATA_ACTIVITIES } from "../constants/action-types";
 import { FETCH_DATA_ACTIVITIES_BY_ID_ITINERARY } from "../constants/action-types";
@@ -26,7 +26,7 @@ import { ADD_ARTICLE } from "../constants/action-types";
 import { GET_TOKEN } from "../constants/action-types";
 
 
-import { urlImages } from "../constants/action-types";
+//import { urlImages } from "../constants/action-types";
 
 
 export const addArticle = (payload) => {

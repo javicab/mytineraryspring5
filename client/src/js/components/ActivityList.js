@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDataActivities , getDataActivitiesByIdItinerary } from "../actions/index";
+import { getDataActivitiesByIdItinerary } from "../actions/index";
 
 class ActivityList extends Component {
 

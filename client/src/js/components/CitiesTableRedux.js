@@ -41,11 +41,11 @@ class CitiesTableRedux extends React.Component {
       rows.push(
         <>
         <tr >{/*key={city._id}>*/}
-        <td><Link to={`/cities/itineraries/${city._id}`} onClick={this.handleLinkOnClick.bind(this,city._id)}>{city.name}</Link></td>
+        {/*<td><Link to={`/cities/itineraries/${city._id}`} onClick={this.handleLinkOnClick.bind(this,city._id)}>{city.name}</Link></td>*/}
         <td>
         <Figure>
             <Figure.Caption>
-              {city.country} {/* {city.name}*/}
+              Country: {city.country} {/* {city.name}*/}
             </Figure.Caption>
           
           <Figure.Image
@@ -57,6 +57,9 @@ class CitiesTableRedux extends React.Component {
             rounded
           />
           </Figure>
+            <Figure.Caption>
+              <Link to={`/cities/itineraries/${city._id}`} onClick={this.handleLinkOnClick.bind(this,city._id)}><h3>{city.name}</h3></Link>
+            </Figure.Caption>
           </td>
         </tr>
         </>
@@ -69,8 +72,8 @@ class CitiesTableRedux extends React.Component {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Cities</th>
-            <th>Countries</th>
+            {/*<th>Cities</th>*/}
+            {/*<th>Countries</th>*/}
           </tr>
         </thead>
         <tbody>{rows}</tbody>

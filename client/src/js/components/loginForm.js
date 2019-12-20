@@ -90,7 +90,7 @@ class loginForm extends Component {
               <p>Enter email:</p>
               <input
                 type="text"
-                placeholder='email'
+                placeholder='anonymous@mytinerary.com'
                 id="email"
                 value={email}
                 onChange={this.handleChange}
@@ -98,7 +98,7 @@ class loginForm extends Component {
               <p>Enter Password:</p>
               <input
                 type="text"
-                placeholder='Password'
+                placeholder='1234'
                 id="password"
                 value={password}
                 onChange={this.handleChange}
