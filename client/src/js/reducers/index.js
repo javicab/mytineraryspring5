@@ -4,6 +4,8 @@ import { FETCH_DATA_ITINERARIES } from "../constants/action-types";
 import { FETCH_DATA_ITINERARIES_BY_ID_CITY } from "../constants/action-types";
 import { FETCH_DATA_ACTIVITIES } from "../constants/action-types";
 import { FETCH_DATA_ACTIVITIES_BY_ID_ITINERARY } from "../constants/action-types";
+import { FETCH_DATA_USER_BY_EMAIL } from "../constants/action-types";
+
 
 import { LEAVE_DATA_CITY } from "../constants/action-types";
 import { LEAVE_DATA_USER } from "../constants/action-types";
@@ -39,7 +41,7 @@ const initialState = {
   activity: [],
   user: [{}],
   token: [""],
-  userLogged: [],
+  userLogged: [{}],
   articles: []
 };
 
@@ -79,9 +81,6 @@ function rootReducer(state = initialState, action) {
       });
     }
 
-    
-
-    // 20191127 - clase
     case FETCH_DATA_ACTIVITIES: {
       console.log('FETCH_DATA_ACTIVITIES')
       return Object.assign({}, state, {
@@ -96,7 +95,13 @@ function rootReducer(state = initialState, action) {
       });
     }
 
-    // 20191128 - casa
+    case FETCH_DATA_USER_BY_EMAIL: {
+      console.log('FETCH_DATA_USER_BY_EMAIL')
+      return Object.assign({}, state, {
+        remoteUser: state.remoteUser.concat(action.payload)
+      });
+    }
+
     case SET_CITY_ID_SELECTED: {
       console.log('SET_CITY_ID_SELECTED')
       return Object.assign({}, state, {

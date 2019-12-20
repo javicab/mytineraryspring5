@@ -10,28 +10,27 @@ class HeaderTitle extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      logged: false
         //url: this.props.location.pathname
     }
-
-//this.sendUserToState = this.sendUserToState.bind(this);
-
   }
 
 
   render() {
+let ultimoItenUserLoggedStore = this.props.userLogged.length;
+console.log('ultimo', ultimoItenUserLoggedStore)
+
     let user={
       username: "Anonymous",
       userProfilePic: "anonymous.png"
     }
 
-/*if(this.props.userLogged ==="" ){
-      user.username= "Anonymous";
-      user.userProfilePic= "anonymous.png";
-    } else {
-      user.username = this.props.userLogged.userName;
+    if(this.props.userLogged.displayName !== ""){
+      user = {
+        username: this.props.userLogged[ultimoItenUserLoggedStore - 1].displayName,
+        userProfilePic: this.props.userLogged[ultimoItenUserLoggedStore -1].profilePic
+      }
     }
-
-    */
 
     return (
         <Row>

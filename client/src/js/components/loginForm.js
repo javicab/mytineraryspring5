@@ -21,6 +21,7 @@ class loginForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+  
   handleClick(event) {
     event.preventDefault();
     console.log('The link was clicked.');

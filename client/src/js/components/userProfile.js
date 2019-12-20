@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
-//import NavBar from './NavBar.js'
-//import '../styles/App.css'
 import {connect} from 'react-redux';
-//import {storeTokenUser, getFavs} from '../actions/usersActions';
-import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom'
-import { urlImages } from "../constants/action-types";
-import {Image , Navbar} from 'react-bootstrap';
-//import Logout from './Logout'
+import { setUserLogged, setToken } from "../actions/index";
 
-//let localStorage = window.localStorage;
+//import { Redirect } from 'react-router-dom'
+//import { urlImages } from "../constants/action-types";
+import { Figure } from 'react-bootstrap';
+//import { decode } from 'jsonwebtoken';
 
 var jwtDecode = require('jwt-decode');
 
@@ -23,29 +19,49 @@ class UserProfile extends Component {
       
     componentDidMount() {
         console.log(this.props.location.pathname) // ok aca esta el token en user/userProfile/'...'
-        this.setState({ url: this.props.location.pathname.substring(18) });
-        console.log('url', this.url);
+        let token = this.props.location.pathname.substring(18);
+        let decoded = jwtDecode(token);
+        //aca poner el dispatch del profile a redux
+        // y el token post google a redux
+        console.log('dispatch userProfile', decoded)
+        this.props.dispatch(setUserLogged(decoded));
+        console.log('dispatch token', token)
+        this.props.dispatch(setToken(token));
     }
 
     render() { 
            console.log('token', this.props.location.pathname.substring(18))
-           var token = this.props.location.pathname.substring(18);
-           var decoded = jwtDecode(token);
-           console.log('decode token');
-           console.log(decoded);
+           let token = this.props.location.pathname.substring(18);
+           let decoded = jwtDecode(token);
+           console.log('decode token', decoded);
+           //JSON.stringify(decoded);
+           console.log(decoded)
+           console.log(decoded.email);
+           console.log(decoded.userName);
+           console.log(decoded.profilePic);
                 return (
                     <div>
-                        
+                        <h6>Profile Page</h6>
+                        <h6>Token {this.state.token}</h6>
+                        <h6>id: {decoded.email}</h6>
                         <div>
-                            <h1>Profile Page</h1>
-                            <h2>Token {this.state.token}</h2>
-                            <div className="text-center">
-                                {/*<Image src={imageToRender} roundedCircle className="mb-3 userImg img-responsive center-block"/>*/}
-                                <h1>imagen profile</h1>
-                            </div>
-                            {/*<span> hola soy {decodedToken.username}</span> */}
+                            <Figure>
+                                <Figure.Image
+                                    width={75}
+                                    height={75}
+                                    alt="75x75"
+                                    src={decoded.profilePic}
+                                    roundedCircle
+                                />
+                                <Figure.Caption>
+                                    {decoded.userName}
+                                </Figure.Caption>
+                            </Figure>
+                        
+                        
                         </div>
-                </div> )
+                    </div>
+                )
            // } else {
                 //return (<Redirect to='/login'/>)
             }

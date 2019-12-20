@@ -162,31 +162,22 @@ app.get('/auth/google',
   passport.authenticate('google', { scope: ['profile'] }), 
   (req, res, next) => {console.log("res", res)}
   );
-
+  
 app.get('/auth/google/redirect', 
   passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res, next) => {
       // Successful authentication
       //res.redirect('/');
       console.log('req.user', req.user);
-      const { userName,
-         email,
-         profilePic } = req.user;
       const payload = {
-        userName: userName,
-        email: email,
-        profilePic: profilePic
+        userName: req.user.displayName,
+        email: req.user.id,
+        profilePic: req.user.image
       };
-
+      console.log('payload Google', payload)
       const options = {expiresIn: 600};
       const token = jwt.sign(payload, key.secretOrKey, options);
       console.log('token posterior google: ', token);
-      /*
-      res.json({// redirect
-        success: true,
-        expira: expDate,
-        token: token
-        */
       res.redirect(`http://localhost:3000/user/userProfile/${token}`);  
       });
       

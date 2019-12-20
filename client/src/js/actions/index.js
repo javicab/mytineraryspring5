@@ -1,13 +1,18 @@
-import { SET_FILTER_TEXT } from "../constants/action-types";
+
 import { FETCH_DATA_CITIES } from "../constants/action-types";
 import { FETCH_DATA_ITINERARIES } from "../constants/action-types";
 import { FETCH_DATA_ITINERARIES_BY_ID_CITY } from "../constants/action-types";
 import { FETCH_DATA_ACTIVITIES } from "../constants/action-types";
 import { FETCH_DATA_ACTIVITIES_BY_ID_ITINERARY } from "../constants/action-types";
+import { FETCH_DATA_USER_BY_EMAIL } from "../constants/action-types";
 import { FETCH_IMG_BY_USER_ID } from "../constants/action-types";
 
+import { SET_FILTER_TEXT } from "../constants/action-types";
 import { SET_CITY_ID_SELECTED } from "../constants/action-types";
 import { SET_ITINERARY_ID_SELECTED } from "../constants/action-types";
+import { SET_USER_LOGGED } from "../constants/action-types";
+import { SET_TOKEN } from "../constants/action-types";
+import { SET_LOGOUT } from "../constants/action-types";
 
 import { ADD_ITINERARY } from "../constants/action-types";
 
@@ -19,7 +24,7 @@ import { LEAVE_DATA_LIKE } from "../constants/action-types"
 
 import { ADD_ARTICLE } from "../constants/action-types";
 import { GET_TOKEN } from "../constants/action-types";
-import { SET_USER_LOGGED } from "../constants/action-types";
+
 
 import { urlImages } from "../constants/action-types";
 
@@ -115,6 +120,24 @@ export function getDataActivitiesByIdItinerary(itID) {
       .catch(error => console.error('Error en getDataActivitiesByIdItinerary',error))
       .then(json => {
         dispatch({ type: FETCH_DATA_ACTIVITIES_BY_ID_ITINERARY, payload: json });
+      });
+  };
+}
+
+export function getDataUserByEmail(email) {
+  return function(dispatch) {
+    return fetch(`http://localhost:5000/users/user/${email}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }         
+        //this.setState({ isLoading: false });
+        return response;
+      })
+      .then(response => response.json())
+      .catch(error => console.error('Error en getDataUserByEmail',error))
+      .then(json => {
+        dispatch({ type: FETCH_DATA_USER_BY_EMAIL, payload: json });
       });
   };
 }
@@ -266,6 +289,13 @@ export const setUserLogged = (payload) => {
   return { type: SET_USER_LOGGED, payload };
 }
 
+export const setToken = (payload) => {
+  return {type: SET_TOKEN, payload };
+}
+
+export const setLogout = (payload) => {
+  return { type: SET_LOGOUT, payload };
+}
 
 export const setFilterText2 = (payload) => {
   return { type: SET_FILTER_TEXT, payload };
